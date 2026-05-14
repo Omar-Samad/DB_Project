@@ -1,34 +1,47 @@
 CREATE DATABASE IF NOT EXISTS lost_and_found;
 USE lost_and_found;
 
+
 CREATE TABLE users(
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) not null UNIQUE,
-    password_hash VARCHAR(255) not null,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
     phone VARCHAR(20),
     role ENUM('user','admin') DEFAULT 'user',
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    CHECK (CHAR_LENGTH(full_name) > 0),
+    CHECK (phone IS NULL OR CHAR_LENGTH(phone) >= 10)
 );
+
 
 CREATE TABLE categories(
     category_id INT AUTO_INCREMENT PRIMARY KEY,
-    category_name VARCHAR(50) NOT NULL
+    category_name VARCHAR(50) NOT NULL,
+    expiry_days INT NOT NULL DEFAULT 30,
+
+    CHECK (expiry_days > 0)
 );
+
 
 CREATE TABLE lost_items(
     lost_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    category_id INT not null,
+    category_id INT NOT NULL,
     item_name VARCHAR(100) NOT NULL,
     description TEXT,
-    location VARCHAR(150) not null,
+    location VARCHAR(150) NOT NULL,
     date_lost DATE NOT NULL,
     status ENUM('pending','verified','returned') DEFAULT 'pending',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    CHECK (date_lost <= CURRENT_DATE),
+
     FOREIGN KEY (user_id) REFERENCES users(user_id),
-    foreign key (category_id) REFERENCES categories(category_id)
+    FOREIGN KEY (category_id) REFERENCES categories(category_id)
 );
+
 
 CREATE TABLE found_items(
     found_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -38,11 +51,19 @@ CREATE TABLE found_items(
     description TEXT,
     location VARCHAR(150) NOT NULL,
     date_found DATE NOT NULL,
+    expiry_date DATE,
     status ENUM('pending','verified','returned') DEFAULT 'pending',
+    admin_action ENUM('archived','sent_to_authority','donated','destroyed'),
+    admin_note TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    foreign key (user_id) REFERENCES users(user_id),
+
+    CHECK (date_found <= CURRENT_DATE),
+    CHECK (expiry_date IS NULL OR expiry_date >= date_found),
+
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
 );
+
 
 CREATE TABLE matches(
     match_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -51,16 +72,9 @@ CREATE TABLE matches(
     similarity_score DECIMAL(5,2) NOT NULL,
     match_status ENUM('pending','confirmed','rejected') DEFAULT 'pending',
     matched_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    CHECK (similarity_score >= 0 AND similarity_score <= 100),
+
     FOREIGN KEY (lost_id) REFERENCES lost_items(lost_id),
-    foreign key (found_id) REFERENCES found_items(found_id)
+    FOREIGN KEY (found_id) REFERENCES found_items(found_id)
 );
-
-use lost_and_found;
-ALTER TABLE categories
-ADD COLUMN expiry_days INT not null default 30;
-
-ALTER TABLE found_items
-add column expiry_date date,
-add column admin_action ENUM('archived','sent_to_authority','donated','destroyed'),
-add column admin_note text;
-
