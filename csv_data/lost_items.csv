@@ -1,0 +1,101 @@
+lost_id,user_id,category_id,item_name,description,location,date_lost,status,created_at
+1,2,4,HP Laptop,HP laptop without charger found on the table,Peshawar Cantonment Railway Station,2026-04-25,verified,2026-05-14 01:03:10
+2,55,8,Notebook,Drawing file with papers found near the gate,CECOS University Peshawar,2026-01-18,returned,2026-03-30 18:12:48
+3,42,3,Android Phone,Samsung phone with blue cover found on the floor,Peshawar Medical College,2025-12-06,verified,2026-02-06 08:26:56
+4,50,2,Student ID Card,Student card found in the parking area with photo visible,Gulbahar No. 3,2026-04-17,pending,2026-04-25 02:55:09
+5,39,12,Mark Sheet,Birth certificate found in an envelope near the gate,Sarhad University of Science and IT,2026-01-12,returned,2026-03-06 08:41:15
+6,12,13,Earbuds,Power bank found on the seat near the entrance,Peshawar Medical College,2026-01-16,returned,2026-01-26 18:16:33
+7,49,6,Office Keys,House keys with a green tag found near the gate,Peshawar Cantonment Railway Station,2026-02-01,returned,2026-03-15 11:47:16
+8,18,2,University Card,University card found on a bench near the library,Peshawar Medical College,2025-11-28,pending,2026-01-16 21:05:54
+9,20,11,Bangle,Silver bracelet found on the floor near counter,Gulbahar No. 2,2026-01-08,verified,2026-03-08 22:18:15
+10,27,6,Motorcycle Keys,Motorcycle keys with remote found near the parking area,Sarhad University of Science and IT,2026-03-25,pending,2026-05-11 14:56:43
+11,46,12,Birth Certificate,Degree certificate in folder found near the office,University of Engineering and Technology Peshawar,2026-04-30,verified,2026-04-30 11:22:59
+12,25,4,Acer Laptop,HP laptop without charger found on the table,Jamia Masjid Gulbahar,2026-01-03,returned,2026-05-01 17:38:06
+13,16,15,Thermos,Tiffin box with food inside found in the cafeteria,Frontier College Peshawar,2026-01-08,pending,2026-02-11 13:44:01
+14,26,6,Key Bundle,Motorcycle keys with remote found near the parking area,Lady Reading Hospital,2026-03-25,verified,2026-05-15 10:30:33
+15,24,5,Purse,Wallet with cash and CNIC found near the gate,Rehman Medical Institute,2026-03-10,verified,2026-04-04 09:08:30
+16,27,9,Dupatta,Brown shawl left on the bench near the entrance,City University of Science and IT,2025-12-24,verified,2026-04-20 13:17:10
+17,54,13,Earphones,Samsung mobile charger found near a charging socket,Hayatabad Phase 6,2025-12-29,verified,2026-04-27 02:59:11
+18,46,14,Meezan Bank Card,Meezan Bank debit card found on the floor,Edwardes College Peshawar,2026-03-25,verified,2026-04-08 16:11:42
+19,10,9,Dupatta,Brown shawl left on the bench near the entrance,Hayatabad Medical Complex,2026-01-20,pending,2026-04-24 02:56:54
+20,2,10,Spectacles,Spectacles in hard case found on the table,Budni Bazaar,2025-12-08,returned,2026-02-04 05:57:30
+21,14,8,Textbook,Drawing file with papers found near the gate,Hayatabad Phase 1,2026-04-07,returned,2026-04-19 15:04:55
+22,46,8,Register,Stationery pouch with pens and pencils found on floor,City University of Science and IT,2026-03-20,pending,2026-04-29 04:38:49
+23,8,1,National ID Card,"CNIC card found on the bench, name visible on it",Firdous Bazaar,2026-05-03,pending,2026-05-15 13:46:14
+24,37,13,Earbuds,Charging cable found near the power socket,Firdous Bazaar,2026-04-27,verified,2026-05-13 12:42:47
+25,33,4,HP Laptop,Acer laptop found near the main gate in a bag,Peshawar Medical College,2026-04-09,returned,2026-05-09 10:57:59
+26,42,8,Notebook,Notebook with detailed notes found on the bench,Abasyn University Peshawar,2025-12-31,verified,2026-03-26 13:21:35
+27,39,7,Shoulder Bag,University bag found in the cafeteria area,Hayatabad Medical Complex,2025-12-13,verified,2026-04-07 12:26:17
+28,45,14,ATM Card,UBL credit card found near the reception counter,Agriculture University Peshawar,2026-03-08,returned,2026-04-11 05:58:14
+29,41,1,CNIC,Computerized ID card found near the reception area,Sarhad University of Science and IT,2026-03-22,returned,2026-05-09 05:13:41
+30,20,5,Purse,Brown leather wallet with some cash inside found on floor,Sunehri Masjid,2026-01-29,returned,2026-01-31 10:51:25
+31,42,12,Birth Certificate,Domicile certificate found near the main counter,Khyber Bazaar,2026-03-31,verified,2026-04-15 04:49:48
+32,45,1,National ID Card,Computerized ID card found near the reception area,Gulbahar No. 1,2026-01-17,verified,2026-05-01 22:34:13
+33,49,7,University Bag,Shoulder bag with clothes inside found near entrance,Agriculture University Peshawar,2026-02-09,verified,2026-03-04 21:54:59
+34,16,15,Prayer Beads,Prayer beads found near the mosque area,Khyber Bazaar,2026-03-07,verified,2026-04-06 02:00:35
+35,2,4,Dell Laptop,Dell laptop in black bag found near the library,Islamia College University,2025-12-20,returned,2026-03-10 21:13:16
+36,50,3,Samsung Phone,Black Android phone found switched on near the entrance,Firdous Bazaar,2026-04-19,verified,2026-05-11 23:38:00
+37,30,11,Gold Ring,Pair of gold earrings found near the chair,Edwardes College Peshawar,2025-12-16,verified,2026-01-26 20:29:54
+38,54,5,Gents Wallet,Gents wallet with visiting cards found near entrance,Firdous Bazaar,2025-11-24,verified,2026-01-18 08:17:33
+39,19,15,Lunch Box,Black umbrella found near the main entrance,Gulbahar No. 3,2025-12-19,returned,2026-02-19 01:48:07
+40,52,5,Leather Wallet,Black wallet found near the reception counter,Palosi Market,2025-12-02,returned,2025-12-20 22:03:48
+41,42,9,Sweater,Brown shawl left on the bench near the entrance,Edwardes College Peshawar,2025-12-30,verified,2026-03-18 00:51:08
+42,30,8,Drawing File,Drawing file with papers found near the gate,Government College of Science Peshawar,2026-02-25,pending,2026-04-28 17:58:24
+43,30,9,Shalwar Kameez,Green scarf found near the reception area,Institute of Management Sciences Peshawar,2026-01-11,verified,2026-05-03 05:35:19
+44,55,5,Purse,Gents wallet with visiting cards found near entrance,Gulbahar No. 3,2026-02-27,pending,2026-04-09 05:49:50
+45,18,10,Reading Glasses,Black wristwatch found on the bench,University of Peshawar,2026-03-09,pending,2026-03-22 01:16:11
+46,48,6,Car Keys,Motorcycle keys with remote found near the parking area,Islamia College University,2026-02-03,verified,2026-02-22 05:54:53
+47,53,3,Samsung Phone,iPhone with cracked screen found on the seat,Wazir Bagh,2026-03-30,verified,2026-03-31 10:25:13
+48,39,15,Water Bottle,Prayer beads found near the mosque area,Wazir Bagh,2026-02-10,returned,2026-04-10 08:29:44
+49,49,5,Ladies Purse,Gents wallet with visiting cards found near entrance,University of Peshawar,2025-12-07,pending,2026-02-27 03:15:41
+50,6,9,Waistcoat,Woolen cap found near the main gate,Edwardes College Peshawar,2026-04-17,pending,2026-04-19 11:09:53
+51,59,10,Sunglasses,Sunglasses found near the parking area,Sunehri Masjid,2026-04-16,pending,2026-04-19 18:13:37
+52,25,4,HP Laptop,Lenovo laptop found near the canteen area,Pakistan Railway Hospital,2025-11-19,returned,2026-03-22 14:44:28
+53,33,6,House Keys,Office keys with tag found near the reception,Khyber Teaching Hospital,2026-03-01,verified,2026-03-17 00:29:56
+54,53,5,Leather Wallet,Wallet with cash and CNIC found near the gate,Northwest General Hospital,2025-12-06,verified,2026-04-18 08:45:18
+55,28,7,Backpack,Shoulder bag with clothes inside found near entrance,Qissa Khwani Bazaar,2026-02-01,pending,2026-02-15 05:07:01
+56,40,8,Notebook,Drawing file with papers found near the gate,Hayatabad Phase 1,2026-02-08,returned,2026-03-29 22:00:52
+57,43,5,Gents Wallet,Black wallet found near the reception counter,Islamia College University,2026-05-02,pending,2026-05-02 12:06:42
+58,37,3,Android Phone,Vivo phone found near the charging point,Firdous Bazaar,2026-02-23,verified,2026-05-15 12:08:50
+59,23,5,Ladies Purse,Black wallet found near the reception counter,Khyber Medical University,2026-03-23,pending,2026-05-14 07:08:37
+60,25,4,HP Laptop,Laptop with stickers found in the classroom,Chowk Yadgar Bazaar,2025-11-20,verified,2026-01-31 11:32:38
+61,56,2,College ID Card,ID card found near the classroom door,Namak Mandi,2026-04-12,returned,2026-04-19 17:47:13
+62,60,10,Spectacles,Spectacles in hard case found on the table,Abasyn University Peshawar,2026-01-16,returned,2026-03-22 13:07:16
+63,10,12,Domicile Certificate,Domicile certificate found near the main counter,Khyber Medical University,2026-01-17,pending,2026-02-13 00:01:31
+64,15,14,Debit Card,Meezan Bank debit card found on the floor,Jamia Masjid Gulbahar,2026-04-26,returned,2026-05-11 01:24:01
+65,16,11,Silver Bracelet,Silver bracelet found on the floor near counter,Peshawar Cantonment Railway Station,2026-02-15,pending,2026-03-06 10:37:01
+66,18,4,HP Laptop,Laptop with stickers found in the classroom,Hayatabad Sports Complex,2025-12-30,verified,2026-04-12 15:48:14
+67,14,6,House Keys,Bundle of keys with keychain found on the floor,Tehkal Market,2026-04-12,pending,2026-04-30 08:56:52
+68,52,4,Laptop,Acer laptop found near the main gate in a bag,Khyber Teaching Hospital,2026-02-05,pending,2026-04-09 06:04:43
+69,3,3,Samsung Phone,Samsung phone with blue cover found on the floor,Hayatabad Phase 2,2026-05-04,pending,2026-05-09 11:36:50
+70,4,14,UBL Card,ATM card found near the main entrance of the building,Qissa Khwani Bazaar,2026-03-08,verified,2026-03-21 20:11:45
+71,12,2,College ID Card,University card found on a bench near the library,Hayatabad Phase 5,2026-01-07,returned,2026-03-25 08:55:31
+72,38,15,Thermos,Water bottle found near the bench outside,CECOS University Peshawar,2026-05-07,returned,2026-05-12 23:15:19
+73,38,11,Gold Ring,Gold bangle found near the prayer area,Iqbal Park Peshawar,2025-11-18,pending,2026-02-24 02:12:43
+74,11,14,Credit Card,Meezan Bank debit card found on the floor,Islamia College University,2026-02-10,pending,2026-04-25 15:54:32
+75,48,6,Key Bundle,Car keys found on the bench near the entrance,Mahabat Khan Mosque,2026-02-01,returned,2026-05-07 06:47:13
+76,20,1,CNIC,Computerized ID card found near the reception area,Dabgari Gardens,2025-12-22,pending,2025-12-24 15:39:45
+77,14,14,ATM Card,ATM card found near the main entrance of the building,Firdous Bazaar,2026-01-04,pending,2026-03-26 19:07:08
+78,44,11,Gold Necklace,Gold bangle found near the prayer area,Palosi Market,2025-12-08,pending,2026-02-27 09:21:45
+79,42,1,Computerized ID Card,Old CNIC card found in a plastic cover near the gate,Institute of Management Sciences Peshawar,2026-05-03,pending,2026-05-13 14:30:59
+80,47,1,Computerized ID Card,Old CNIC card found in a plastic cover near the gate,Peshawar Cantonment Railway Station,2026-01-10,verified,2026-01-13 07:31:11
+81,18,4,Dell Laptop,Acer laptop found near the main gate in a bag,Rehman Medical Institute,2026-02-28,verified,2026-03-09 22:10:52
+82,4,1,Computerized ID Card,"CNIC card found near the main entrance, belongs to a male person",Karkhano Market,2026-01-13,verified,2026-04-17 18:39:36
+83,49,15,Umbrella,Water bottle found near the bench outside,Abasyn University Peshawar,2025-12-23,verified,2026-03-20 09:00:16
+84,34,10,Sunglasses,Reading glasses found near the prayer area,Meena Bazaar,2026-05-02,pending,2026-05-04 03:29:24
+85,59,4,Acer Laptop,Lenovo laptop found near the canteen area,Palosi Market,2025-12-18,pending,2026-02-22 08:54:02
+86,49,11,Earrings,Silver bracelet found on the floor near counter,Iqbal Park Peshawar,2026-03-15,returned,2026-03-19 04:49:49
+87,30,13,Data Cable,Power bank found on the seat near the entrance,Khyber Bazaar,2026-01-08,verified,2026-05-11 05:51:07
+88,49,15,Water Bottle,Tiffin box with food inside found in the cafeteria,Frontier College Peshawar,2025-11-28,verified,2025-12-10 13:20:24
+89,11,12,Domicile Certificate,Degree certificate in folder found near the office,Islamia College University,2026-01-27,verified,2026-05-04 23:13:39
+90,11,14,ATM Card,Meezan Bank debit card found on the floor,Budni Bazaar,2026-02-03,verified,2026-04-13 03:16:13
+91,50,15,Thermos,Tiffin box with food inside found in the cafeteria,Iqbal Park Peshawar,2025-12-23,returned,2026-02-26 02:08:20
+92,57,15,Umbrella,Black umbrella found near the main entrance,Government College of Science Peshawar,2026-02-11,returned,2026-03-16 22:11:23
+93,40,14,ATM Card,UBL credit card found near the reception counter,Qissa Khwani Bazaar,2026-03-20,pending,2026-04-07 20:12:42
+94,33,2,College ID Card,Student card found in the parking area with photo visible,Tehkal Market,2026-01-18,verified,2026-03-13 21:22:01
+95,3,8,Register,Notebook with detailed notes found on the bench,Edwardes College Peshawar,2025-12-11,verified,2026-03-29 18:21:26
+96,60,1,Computerized ID Card,Computerized ID card found near the reception area,Pakistan Railway Hospital,2026-01-07,returned,2026-01-28 09:32:53
+97,46,7,School Bag,Shoulder bag with clothes inside found near entrance,Edwardes College Peshawar,2026-02-16,returned,2026-03-24 04:34:25
+98,28,7,School Bag,Shoulder bag with clothes inside found near entrance,Rehman Medical Institute,2026-01-01,pending,2026-04-22 10:39:16
+99,19,3,Vivo Phone,Vivo phone found near the charging point,University of Peshawar,2025-11-25,pending,2026-01-11 05:27:56
+100,20,6,Key Bundle,House keys with a green tag found near the gate,Hayatabad Phase 2,2026-03-23,returned,2026-05-15 18:31:09

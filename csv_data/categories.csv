@@ -1,0 +1,16 @@
+category_id,category_name,expiry_days
+1,CNIC / National ID Card,10
+2,Student ID Card,15
+3,Mobile Phone,45
+4,Laptop,60
+5,Wallet / Purse,20
+6,Keys,15
+7,Bag / Backpack,30
+8,Books & Stationery,20
+9,Clothing & Accessories,25
+10,Watch & Glasses,30
+11,Jewellery,45
+12,Documents & Certificates,10
+13,Charger & Earphones,20
+14,Bank Cards,10
+15,Other,30

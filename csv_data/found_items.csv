@@ -1,0 +1,101 @@
+found_id,user_id,category_id,item_name,description,location,date_found,expiry_date,status,admin_action,admin_note,created_at
+1,5,6,Key Bundle,Bundle of keys with keychain found on the floor,Eidgah Mosque Peshawar,2025-12-27,2026-01-11,expired,sent_to_authority,Item was destroyed as it had no further use,2026-02-15 06:15:44
+2,27,10,Reading Glasses,Silver wristwatch found near the reception counter,Khyber Bazaar,2026-03-29,2026-04-28,verified,,,2026-05-08 10:02:57
+3,23,13,Power Bank,Earbuds with case found near the library,Gulbahar No. 2,2026-04-10,2026-04-30,expired,donated,Sent to the relevant authority as per policy,2026-05-15 15:36:02
+4,12,6,Motorcycle Keys,Office keys with tag found near the reception,Shahi Bagh Park,2025-12-21,2026-01-05,expired,archived,No one came to claim this item after multiple announcements,2026-04-11 23:23:26
+5,36,15,Thermos,Water bottle found near the bench outside,Hayatabad Phase 5,2026-02-01,2026-03-03,expired,archived,Given to nearby mosque for safekeeping,2026-04-20 12:23:28
+6,32,6,Key Bundle,Office keys with tag found near the reception,Tehkal Market,2026-04-28,2026-05-13,verified,,,2026-04-29 21:24:35
+7,35,10,Spectacles,Black wristwatch found on the bench,Khyber Teaching Hospital,2026-03-28,2026-04-27,expired,archived,Donated to a local charity after expiry,2026-05-05 11:32:50
+8,2,8,Stationery Pouch,Stationery pouch with pens and pencils found on floor,Hayatabad Sports Complex,2026-01-03,2026-01-23,expired,sent_to_authority,Item was not claimed within the allowed time period,2026-05-15 12:49:02
+9,14,5,Wallet,Brown leather wallet with some cash inside found on floor,Peshawar Medical College,2026-03-04,2026-03-24,returned,,,2026-04-02 02:18:43
+10,55,2,University Card,Student ID card with photo found near the canteen,Islamia College University,2026-01-10,2026-01-25,verified,,,2026-02-09 13:06:53
+11,12,14,HBL Card,Bank debit card found in the parking area,Saddar Bazaar,2026-02-06,2026-02-16,verified,,,2026-02-23 11:15:46
+12,53,15,Tiffin Box,Prayer beads found near the mosque area,Dabgari Gardens,2026-01-04,2026-02-03,expired,archived,Sent to the relevant authority as per policy,2026-01-20 04:50:15
+13,35,12,Birth Certificate,Birth certificate found in an envelope near the gate,Saddar Bazaar,2026-02-26,2026-03-08,verified,,,2026-04-16 13:03:59
+14,33,10,Sunglasses,Sunglasses found near the parking area,Namak Mandi,2026-02-12,2026-03-14,verified,,,2026-04-21 07:31:54
+15,4,3,Vivo Phone,iPhone with cracked screen found on the seat,Masjid Qasim Ali Khan,2026-01-23,2026-03-09,verified,,,2026-03-25 08:43:52
+16,41,12,Degree Certificate,Degree certificate in folder found near the office,Tehkal Market,2025-12-13,2025-12-23,returned,,,2026-04-06 21:09:57
+17,37,8,Notebook,Stationery pouch with pens and pencils found on floor,Peshawar Cantonment Railway Station,2026-04-18,2026-05-08,verified,,,2026-05-12 16:05:23
+18,31,5,Purse,Ladies purse with ID card and cards inside found on seat,Meena Bazaar,2025-12-29,2026-01-18,expired,archived,Item was not claimed within the allowed time period,2026-04-21 05:00:34
+19,9,1,Computerized ID Card,"CNIC card found on the bench, name visible on it",Qissa Khwani Bazaar,2026-02-16,2026-02-26,expired,donated,Sent to NADRA office for further action,2026-03-20 17:29:13
+20,5,14,UBL Card,HBL ATM card found near the ATM machine,Dabgari Gardens,2026-02-15,2026-02-25,expired,sent_to_authority,Item was not claimed within the allowed time period,2026-05-10 22:21:16
+21,2,12,Result Card,Domicile certificate found near the main counter,Hayatabad Phase 2,2026-04-26,2026-05-06,verified,,,2026-05-13 04:29:33
+22,35,10,Reading Glasses,Silver wristwatch found near the reception counter,Hayatabad Sports Complex,2026-01-25,2026-02-24,expired,sent_to_authority,Handed over to the concerned department,2026-02-06 07:40:09
+23,3,11,Gold Chain,Gold necklace found near the main entrance,Sarhad University of Science and IT,2025-11-27,2026-01-11,expired,archived,Given to nearby mosque for safekeeping,2025-12-14 23:42:21
+24,17,5,Wallet,Wallet with cash and CNIC found near the gate,Namak Mandi,2026-05-05,2026-05-25,verified,,,2026-05-09 22:00:03
+25,20,10,Wristwatch,Black wristwatch found on the bench,Hayatabad Medical Complex,2026-02-03,2026-03-05,expired,destroyed,Item was destroyed as it had no further use,2026-02-15 13:53:16
+26,21,11,Gold Chain,Pair of gold earrings found near the chair,Tehkal Market,2026-04-01,2026-05-16,pending,,,2026-05-02 05:56:53
+27,9,4,Laptop,Dell laptop in black bag found near the library,Hayatabad Phase 4,2025-12-03,2026-02-01,expired,destroyed,Item was destroyed as it had no further use,2025-12-13 13:35:55
+28,13,2,College ID Card,Student card found in the parking area with photo visible,Eidgah Mosque Peshawar,2026-01-23,2026-02-07,returned,,,2026-02-23 06:21:14
+29,10,14,Credit Card,Meezan Bank debit card found on the floor,Gulbahar No. 2,2026-01-14,2026-01-24,returned,,,2026-04-27 12:49:15
+30,56,13,Mobile Charger,Charging cable found near the power socket,Peshawar Zoo,2026-02-15,2026-03-07,expired,donated,Given to nearby mosque for safekeeping,2026-03-02 06:43:37
+31,48,2,Student ID Card,Student card found in the parking area with photo visible,Gulbahar No. 3,2026-03-05,2026-03-20,returned,,,2026-04-25 12:26:45
+32,38,8,Notebook,Biology textbook with student name written on it,Sunehri Masjid,2025-11-23,2025-12-13,returned,,,2025-12-11 18:51:01
+33,13,6,House Keys,Motorcycle keys with remote found near the parking area,Khyber Bazaar,2026-03-07,2026-03-22,verified,,,2026-04-14 12:51:21
+34,32,5,Leather Wallet,Brown leather wallet with some cash inside found on floor,Eidgah Mosque Peshawar,2026-01-06,2026-01-26,expired,destroyed,Donated to a local charity after expiry,2026-03-25 15:19:09
+35,5,3,Mobile Phone,Black Android phone found switched on near the entrance,Peshawar Medical College,2025-12-04,2026-01-18,returned,,,2025-12-13 22:34:35
+36,38,4,Laptop,Acer laptop found near the main gate in a bag,Frontier College Peshawar,2026-04-20,2026-06-19,pending,,,2026-04-29 01:17:06
+37,54,6,Car Keys,House keys with a green tag found near the gate,Chowk Yadgar Bazaar,2026-03-22,2026-04-06,expired,archived,Item was destroyed as it had no further use,2026-04-29 00:50:11
+38,8,9,Dupatta,Brown shawl left on the bench near the entrance,Gulbahar No. 1,2025-12-12,2026-01-06,returned,,,2026-01-11 17:55:48
+39,53,15,Tiffin Box,Tiffin box with food inside found in the cafeteria,Khyber Bazaar,2026-04-12,2026-05-12,verified,,,2026-04-24 09:54:46
+40,18,1,National ID Card,"CNIC card found on the bench, name visible on it",Chowk Yadgar Bazaar,2026-02-07,2026-02-17,verified,,,2026-04-15 07:46:56
+41,2,12,Degree Certificate,Degree certificate in folder found near the office,University of Engineering and Technology Peshawar,2026-04-18,2026-04-28,returned,,,2026-04-27 21:29:41
+42,12,12,Domicile Certificate,Mark sheet found near the library entrance,Namak Mandi,2026-05-02,2026-05-12,returned,,,2026-05-12 10:48:18
+43,7,6,Motorcycle Keys,House keys with a green tag found near the gate,Meena Bazaar,2025-12-01,2025-12-16,verified,,,2025-12-18 04:20:04
+44,53,12,Degree Certificate,Mark sheet found near the library entrance,Agriculture University Peshawar,2025-12-26,2026-01-05,returned,,,2026-03-08 11:45:30
+45,8,1,CNIC,"CNIC card found on the bench, name visible on it",Rehman Medical Institute,2025-11-28,2025-12-08,expired,destroyed,No one came to claim this item after multiple announcements,2026-02-04 07:52:32
+46,11,15,Water Bottle,Tiffin box with food inside found in the cafeteria,Naseer Teaching Hospital,2026-04-03,2026-05-03,verified,,,2026-04-14 09:26:30
+47,3,3,Oppo Phone,Mobile phone with broken screen found near the bus stop,Peshawar Cantonment Railway Station,2026-04-17,2026-06-01,pending,,,2026-04-18 09:48:23
+48,2,4,Laptop,Laptop with stickers found in the classroom,Hayatabad Sports Complex,2026-03-27,2026-05-26,pending,,,2026-05-14 21:59:21
+49,53,13,Mobile Charger,White earphones found on the table near canteen,Namak Mandi,2026-05-06,2026-05-26,pending,,,2026-05-11 10:05:54
+50,52,8,Drawing File,Notebook with detailed notes found on the bench,Mahabat Khan Mosque,2026-02-13,2026-03-05,verified,,,2026-04-24 18:58:14
+51,24,12,Mark Sheet,Mark sheet found near the library entrance,Hayatabad Phase 1,2025-12-04,2025-12-14,verified,,,2026-03-09 20:20:04
+52,58,10,Sunglasses,Reading glasses found near the prayer area,Hayatabad Phase 3,2026-01-06,2026-02-05,verified,,,2026-01-08 04:20:22
+53,56,9,Shawl,Ladies dupatta found near the prayer area,Palosi Market,2026-05-15,2026-06-09,pending,,,2026-05-15 22:00:16
+54,37,7,School Bag,Ladies handbag with personal items found on the seat,Namak Mandi,2025-11-20,2025-12-20,verified,,,2026-05-13 07:36:33
+55,55,6,House Keys,Bundle of keys with keychain found on the floor,Masjid Qasim Ali Khan,2025-12-13,2025-12-28,returned,,,2026-01-23 11:16:58
+56,20,7,School Bag,Shoulder bag with clothes inside found near entrance,Rehman Medical Institute,2026-04-02,2026-05-02,verified,,,2026-05-08 14:48:51
+57,39,9,Waistcoat,Brown shawl left on the bench near the entrance,Wazir Bagh,2025-12-23,2026-01-17,verified,,,2026-02-25 16:46:47
+58,12,6,Car Keys,Car keys found on the bench near the entrance,Hayatabad Phase 2,2025-12-23,2026-01-07,expired,archived,Donated to a local charity after expiry,2026-02-11 14:35:43
+59,46,12,Birth Certificate,Result card with student details found on bench,Namak Mandi,2026-02-25,2026-03-07,verified,,,2026-03-22 07:04:20
+60,33,9,Waistcoat,Black jacket left on a chair inside the hall,University of Peshawar,2025-12-27,2026-01-21,verified,,,2026-01-18 16:02:55
+61,25,13,Power Bank,White earphones found on the table near canteen,Palosi Market,2025-12-02,2025-12-22,returned,,,2026-01-11 12:27:25
+62,34,4,Dell Laptop,Lenovo laptop found near the canteen area,Edwardes College Peshawar,2026-05-12,2026-07-11,verified,,,2026-05-12 09:04:33
+63,32,15,Umbrella,Water bottle found near the bench outside,Hayatabad Phase 3,2026-05-12,2026-06-11,pending,,,2026-05-14 10:24:49
+64,12,4,HP Laptop,Dell laptop in black bag found near the library,Hayatabad Sports Complex,2026-01-05,2026-03-06,returned,,,2026-01-12 21:51:58
+65,15,10,Wristwatch,Black wristwatch found on the bench,Pakistan Railway Hospital,2026-03-30,2026-04-29,returned,,,2026-04-15 12:58:10
+66,33,8,Drawing File,Stationery pouch with pens and pencils found on floor,Naseer Teaching Hospital,2026-03-25,2026-04-14,verified,,,2026-04-04 05:38:53
+67,29,9,Shalwar Kameez,Ladies dupatta found near the prayer area,Frontier College Peshawar,2026-03-04,2026-03-29,returned,,,2026-03-28 03:12:49
+68,14,10,Wristwatch,Sunglasses found near the parking area,City University of Science and IT,2026-03-03,2026-04-02,verified,,,2026-05-05 12:06:29
+69,32,5,Purse,Brown leather wallet with some cash inside found on floor,Hayatabad Phase 6,2026-02-24,2026-03-16,expired,sent_to_authority,Given to nearby mosque for safekeeping,2026-03-13 04:10:30
+70,59,6,Motorcycle Keys,Motorcycle keys with remote found near the parking area,Namak Mandi,2026-03-16,2026-03-31,returned,,,2026-04-03 04:58:39
+71,40,10,Sunglasses,Black wristwatch found on the bench,CECOS University Peshawar,2026-03-02,2026-04-01,returned,,,2026-04-23 17:05:34
+72,58,6,Key Bundle,Office keys with tag found near the reception,Mahabat Khan Mosque,2025-12-01,2025-12-16,returned,,,2026-03-23 18:39:11
+73,39,10,Sunglasses,Sunglasses found near the parking area,Lady Reading Hospital,2026-04-02,2026-05-02,verified,,,2026-04-08 09:49:59
+74,54,3,Mobile Phone,Samsung phone with blue cover found on the floor,Dabgari Gardens,2025-11-29,2026-01-13,returned,,,2025-12-23 07:56:42
+75,44,12,Mark Sheet,Mark sheet found near the library entrance,Mahabat Khan Mosque,2026-02-19,2026-03-01,verified,,,2026-04-30 06:47:17
+76,13,8,Stationery Pouch,Drawing file with papers found near the gate,Rehman Medical Institute,2026-03-21,2026-04-10,expired,destroyed,Item was destroyed as it had no further use,2026-03-21 16:21:45
+77,36,5,Purse,Black wallet found near the reception counter,Firdous Bazaar,2026-03-19,2026-04-08,returned,,,2026-04-24 17:19:38
+78,60,10,Reading Glasses,Sunglasses found near the parking area,Pakistan Railway Hospital,2026-05-07,2026-06-06,verified,,,2026-05-09 19:02:40
+79,16,15,Tiffin Box,Water bottle found near the bench outside,Institute of Management Sciences Peshawar,2026-04-01,2026-05-01,expired,sent_to_authority,Given to nearby mosque for safekeeping,2026-04-03 04:55:59
+80,25,4,Acer Laptop,Laptop with stickers found in the classroom,Hayatabad Phase 5,2026-04-20,2026-06-19,verified,,,2026-05-10 01:34:18
+81,5,10,Wristwatch,Reading glasses found near the prayer area,Hayatabad Phase 4,2025-11-18,2025-12-18,verified,,,2026-05-03 06:35:39
+82,22,4,Dell Laptop,Dell laptop in black bag found near the library,Hayatabad Sports Complex,2025-11-18,2026-01-17,verified,,,2026-05-04 05:48:41
+83,55,1,National ID Card,Old CNIC card found in a plastic cover near the gate,Hayatabad Phase 2,2026-01-13,2026-01-23,expired,sent_to_authority,Handed over to the concerned department,2026-03-12 21:31:59
+84,30,6,Key Bundle,Office keys with tag found near the reception,Rehman Medical Institute,2026-04-10,2026-04-25,returned,,,2026-05-13 07:56:54
+85,3,11,Gold Necklace,Gold ring found near the washroom entrance,Gulbahar No. 1,2025-12-03,2026-01-17,returned,,,2026-03-10 17:59:05
+86,3,4,Laptop,Laptop with stickers found in the classroom,Hayatabad Phase 4,2026-01-29,2026-03-30,expired,sent_to_authority,Given to nearby mosque for safekeeping,2026-03-10 11:01:23
+87,45,14,HBL Card,UBL credit card found near the reception counter,Masjid Qasim Ali Khan,2025-11-22,2025-12-02,expired,sent_to_authority,Donated to a local charity after expiry,2026-01-09 22:10:08
+88,56,3,Samsung Phone,Android phone found switched off near the washroom,Islamia College University,2026-02-05,2026-03-22,verified,,,2026-03-01 04:47:06
+89,57,12,Birth Certificate,Degree certificate in folder found near the office,Eidgah Mosque Peshawar,2026-04-05,2026-04-15,verified,,,2026-05-05 01:55:05
+90,46,11,Gold Ring,Silver bracelet found on the floor near counter,Hayatabad Phase 5,2026-03-10,2026-04-24,expired,destroyed,Item was not claimed within the allowed time period,2026-03-18 03:11:55
+91,42,11,Gold Chain,Pair of gold earrings found near the chair,Hayatabad Sports Complex,2026-01-11,2026-02-25,verified,,,2026-02-12 02:36:59
+92,8,9,Shalwar Kameez,Black jacket left on a chair inside the hall,Khyber Teaching Hospital,2026-04-19,2026-05-14,verified,,,2026-05-12 02:25:32
+93,43,11,Gold Ring,Gold necklace found near the main entrance,Karkhano Market,2026-03-20,2026-05-04,verified,,,2026-04-02 18:45:36
+94,33,10,Sunglasses,Black wristwatch found on the bench,Naseer Teaching Hospital,2026-02-01,2026-03-03,verified,,,2026-04-30 01:57:25
+95,52,11,Silver Bracelet,Gold ring found near the washroom entrance,Gulbahar No. 3,2026-04-22,2026-06-06,pending,,,2026-04-28 23:46:40
+96,56,5,Purse,Gents wallet with visiting cards found near entrance,Shahi Bagh Park,2026-01-18,2026-02-07,expired,destroyed,Sent to the relevant authority as per policy,2026-02-03 15:10:43
+97,22,8,Drawing File,Notebook with detailed notes found on the bench,Khyber Bazaar,2026-03-27,2026-04-16,expired,destroyed,Sent to the relevant authority as per policy,2026-05-01 04:28:32
+98,17,6,House Keys,Office keys with tag found near the reception,Meena Bazaar,2026-01-03,2026-01-18,verified,,,2026-01-12 04:58:18
+99,12,6,House Keys,Motorcycle keys with remote found near the parking area,Gulbahar No. 1,2025-12-16,2025-12-31,returned,,,2026-04-12 14:25:54
+100,51,15,Prayer Beads,Thermos flask found near the seating area,Jamia Masjid Gulbahar,2026-04-11,2026-05-11,returned,,,2026-04-28 14:06:32
