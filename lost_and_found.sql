@@ -67,3 +67,7 @@ CREATE TABLE matches(
     FOREIGN KEY (lost_id) REFERENCES lost_items(lost_id),
     FOREIGN KEY (found_id) REFERENCES found_items(found_id)
 );
+
+
+
+
