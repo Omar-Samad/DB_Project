@@ -742,34 +742,10 @@ const CATEGORIES = [
   {id:15,name:"Other",expiry:30},
 ];
 
-/* Sample data seeded from your CSV structure */
-let lostItems = [
-  {id:1,user_id:2,category_id:3,item_name:"Samsung Galaxy A52",description:"Black colour, cracked screen protector, blue case",location:"Hayatabad Phase 3",date_lost:"2025-09-12",status:"pending"},
-  {id:2,user_id:3,category_id:6,item_name:"Car Keys (Toyota)",description:"Toyota key with red lanyard",location:"Qissa Khwani Bazaar",date_lost:"2025-10-01",status:"pending"},
-  {id:3,user_id:4,category_id:1,item_name:"CNIC Card",description:"Name: Farrukh Iqbal, issued Peshawar",location:"University Road",date_lost:"2025-09-28",status:"verified"},
-  {id:4,user_id:5,category_id:7,item_name:"Black Laptop Bag",description:"Lenovo bag with laptop and charger inside",location:"Saddar Bazaar",date_lost:"2025-10-05",status:"pending"},
-  {id:5,user_id:6,category_id:4,item_name:"HP Laptop",description:"HP EliteBook, silver colour, stickers on lid",location:"Peshawar Mor",date_lost:"2025-09-30",status:"pending"},
-  {id:6,user_id:2,category_id:5,item_name:"Brown Leather Wallet",description:"Contains cash and 2 bank cards",location:"Charsadda Road",date_lost:"2025-10-10",status:"returned"},
-  {id:7,user_id:7,category_id:10,item_name:"Gold-frame Glasses",description:"Gold-coloured metal frame, prescription lenses",location:"City Hospital area",date_lost:"2025-10-08",status:"pending"},
-];
-
-let foundItems = [
-  {id:1,user_id:8,category_id:3,item_name:"Samsung Phone (black)",description:"Samsung phone, black case, found near food stalls",location:"Hayatabad Phase 3 Food Street",date_found:"2025-09-13",status:"pending",expiry_date:"2025-10-28"},
-  {id:2,user_id:9,category_id:7,item_name:"Dark Blue Backpack",description:"Blue laptop bag with charger cable sticking out",location:"Saddar near Cantt",date_found:"2025-10-06",status:"verified",expiry_date:"2025-11-05"},
-  {id:3,user_id:10,category_id:1,item_name:"CNIC — Farrukh Iqbal",description:"CNIC card with Peshawar address",location:"University Road bus stop",date_found:"2025-09-29",status:"returned",expiry_date:"2025-10-09"},
-  {id:4,user_id:11,category_id:6,item_name:"Toyota car keys",description:"Toyota remote key, red fabric loop",location:"Qissa Khwani near bank",date_found:"2025-10-02",status:"pending",expiry_date:"2025-10-17"},
-  {id:5,user_id:12,category_id:14,item_name:"Bank Card (MCB)",description:"MCB debit card, name partially visible",location:"Hayatabad",date_found:"2025-10-11",status:"pending",expiry_date:"2025-10-21"},
-  {id:6,user_id:13,category_id:5,item_name:"Wallet — brown leather",description:"Brown wallet with some cash and cards",location:"Charsadda Road bus stand",date_found:"2025-10-11",status:"returned",expiry_date:"2025-10-31"},
-];
-
-let matches = [
-  {id:1,lost_id:1,found_id:1,score:91.5,status:"confirmed"},
-  {id:2,lost_id:4,found_id:2,score:88.0,status:"confirmed"},
-  {id:3,lost_id:3,found_id:3,score:99.2,status:"confirmed"},
-  {id:4,lost_id:2,found_id:4,score:85.7,status:"pending"},
-  {id:5,lost_id:6,found_id:6,score:94.1,status:"confirmed"},
-  {id:6,lost_id:5,found_id:2,score:62.3,status:"rejected"},
-];
+/* Live data — loaded from database via Flask API */
+let lostItems = [];
+let foundItems = [];
+let matches = [];
 
 const DEMO_USERS = [
   {email:"admin@lf.com",pass:"admin123",name:"Admin User",role:"admin"},
@@ -781,7 +757,22 @@ let currentUser = null;
 let reportMode = 'lost';
 
 /* ═══════════════ INIT ═══════════════ */
-function init() {
+async function init() {
+  try {
+    const [lostRes, foundRes, matchRes] = await Promise.all([
+      fetch('/api/lost-items'),
+      fetch('/api/found-items'),
+      fetch('/api/matches')
+    ]);
+    const lostData  = await lostRes.json();
+    const foundData = await foundRes.json();
+    const matchData = await matchRes.json();
+    lostItems  = lostData.map(i => ({...i, id: i.lost_id  ?? i.id}));
+    foundItems = foundData.map(i => ({...i, id: i.found_id ?? i.id}));
+    matches    = matchData.map(i => ({...i, id: i.match_id ?? i.id}));
+  } catch(err) {
+    console.warn('Could not load from database, showing empty.', err);
+  }
   populateCategoryDropdowns();
   updateStats();
   setDateDefault();

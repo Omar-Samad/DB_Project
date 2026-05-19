@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS lost_and_found;
+USE lost_and_found;
 CREATE INDEX idx_lost_user ON lost_items(user_id);
 CREATE INDEX idx_lost_category ON lost_items(category_id);
 CREATE INDEX idx_lost_status ON lost_items(status);
