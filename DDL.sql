@@ -14,3 +14,10 @@ CREATE INDEX idx_found_location ON found_items(location);
 CREATE INDEX idx_match_lost ON matches(lost_id);
 CREATE INDEX idx_match_found ON matches(found_id);
 CREATE INDEX idx_match_status ON matches(match_status);
+
+CREATE INDEX idx_claim_item on claims(item_id);
+create index idx_claim_user on claims(user_id);
+create INDEX idx_claim_status ON claims(status);
+
+CREATE INDEX idx_notif_user on notifications(user_id);
+

@@ -1,4 +1,3 @@
-DROP DATABASE IF EXISTS lost_and_found;
 CREATE DATABASE lost_and_found;
 USE lost_and_found;
 
@@ -56,18 +55,22 @@ CREATE TABLE found_items(
 );
 
 
-CREATE TABLE matches(
-    match_id INT AUTO_INCREMENT PRIMARY KEY,
-    lost_id INT NOT NULL,
-    found_id INT NOT NULL,
-    similarity_score DECIMAL(5,2) NOT NULL,
-    match_status ENUM('pending','confirmed','rejected') DEFAULT 'pending',
-    matched_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CHECK (similarity_score >= 0 AND similarity_score <= 100),
-    FOREIGN KEY (lost_id) REFERENCES lost_items(lost_id),
-    FOREIGN KEY (found_id) REFERENCES found_items(found_id)
+create table claims (
+    claim_id int auto_increment primary key,
+    item_type enum('lost','found') not null,
+    item_id int not null,
+    user_id int not null,
+    claim_message text not null,
+    status enum('pending','approved','rejected') default 'pending',
+    created_at datetime default current_timestamp,
+    foreign key (user_id) references users(user_id)
 );
 
-
-
-
+create table notifications (
+    notification_id int auto_increment primary key,
+    user_id int not null,
+    message text not null,
+    is_read boolean default false,
+    created_at datetime default current_timestamp,
+    foreign key (user_id) references users(user_id)
+);
