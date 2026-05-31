@@ -1,0 +1,310 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard — Lost & Found{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="page-header">
+    <div class="page-title">Admin Dashboard</div>
+    <div class="page-sub">Manage all reports, claims, matches and expired items</div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">{{ lost_count + found_count }}</div>
+      <div class="stat-label">Total Reports</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:var(--warning);">{{ pending_items|length }}</div>
+      <div class="stat-label">Pending Approval</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:var(--info);">{{ claims_count }}</div>
+      <div class="stat-label">Pending Claims</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:var(--danger);">{{ expired_count }}</div>
+      <div class="stat-label">Expired Items</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:var(--success);">{{ returned_count }}</div>
+      <div class="stat-label">Items Returned</div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('pending', this)">
+      Pending ({{ pending_items|length }})
+    </button>
+    <button class="tab-btn" onclick="showTab('claims', this)">
+      Claims ({{ claims_count }})
+    </button>
+    <button class="tab-btn" onclick="showTab('matches', this)">
+      Matches ({{ matches|length }})
+    </button>
+    <button class="tab-btn" onclick="showTab('expired', this)">
+      Expired ({{ expired_count }})
+    </button>
+    <button class="tab-btn" onclick="showTab('all-lost', this)">
+      All Lost ({{ lost_count }})
+    </button>
+    <button class="tab-btn" onclick="showTab('all-found', this)">
+      All Found ({{ found_count }})
+    </button>
+  </div>
+
+  <!-- PENDING ITEMS TAB -->
+  <div id="tab-pending">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Reported By</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if pending_items %}
+            {% for item in pending_items %}
+            <tr>
+              <td><span class="badge badge-{{ item.type }}">{{ item.type }}</span></td>
+              <td><strong>{{ item.item_name }}</strong></td>
+              <td>{{ item.category_name }}</td>
+              <td>{{ item.location }}</td>
+              <td>{{ item.date }}</td>
+              <td>{{ item.full_name }}</td>
+              <td>
+                <div class="action-row">
+                  <form action="{{ url_for('admin_verify') }}" method="POST">
+                    <input type="hidden" name="type" value="{{ item.type }}">
+                    <input type="hidden" name="id"   value="{{ item.id }}">
+                    <button type="submit" class="btn btn-success btn-sm">Verify</button>
+                  </form>
+                  <form action="{{ url_for('admin_reject') }}" method="POST">
+                    <input type="hidden" name="type" value="{{ item.type }}">
+                    <input type="hidden" name="id"   value="{{ item.id }}">
+                    <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          {% else %}
+            <tr><td colspan="7" class="empty">No pending items.</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CLAIMS TAB -->
+  <div id="tab-claims" style="display:none;">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Type</th>
+            <th>Claimed By</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if pending_claims %}
+            {% for claim in pending_claims %}
+            <tr>
+              <td><strong>{{ claim.item_name }}</strong></td>
+              <td><span class="badge badge-{{ claim.item_type }}">{{ claim.item_type }}</span></td>
+              <td>{{ claim.claimer_name }}</td>
+              <td style="max-width:260px; font-size:13px; color:var(--muted);">
+                {{ claim.claim_message[:120] }}{% if claim.claim_message|length > 120 %}...{% endif %}
+              </td>
+              <td>{{ claim.created_at }}</td>
+              <td>
+                <div class="action-row">
+                  <form action="{{ url_for('admin_claim_action') }}" method="POST">
+                    <input type="hidden" name="claim_id" value="{{ claim.claim_id }}">
+                    <input type="hidden" name="action"   value="approved">
+                    <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                  </form>
+                  <form action="{{ url_for('admin_claim_action') }}" method="POST">
+                    <input type="hidden" name="claim_id" value="{{ claim.claim_id }}">
+                    <input type="hidden" name="action"   value="rejected">
+                    <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          {% else %}
+            <tr><td colspan="6" class="empty">No pending claims.</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- MATCHES TAB -->
+  <div id="tab-matches" style="display:none;">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Lost Item</th>
+            <th>Found Item</th>
+            <th>Category</th>
+            <th>Score</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if matches %}
+            {% for m in matches %}
+            <tr>
+              <td>
+                <strong>{{ m.lost_name }}</strong><br>
+                <small style="color:var(--muted);">{{ m.lost_loc }}</small>
+              </td>
+              <td>
+                <strong>{{ m.found_name }}</strong><br>
+                <small style="color:var(--muted);">{{ m.found_loc }}</small>
+              </td>
+              <td>{{ m.category_name }}</td>
+              <td><strong>{{ m.similarity_score }}%</strong></td>
+              <td><span class="badge badge-{{ m.match_status }}">{{ m.match_status }}</span></td>
+              <td>
+                {% if m.match_status == 'pending' %}
+                <div class="action-row">
+                  <form action="{{ url_for('admin_match_action') }}" method="POST">
+                    <input type="hidden" name="match_id" value="{{ m.match_id }}">
+                    <input type="hidden" name="action"   value="confirmed">
+                    <button type="submit" class="btn btn-success btn-sm">Confirm</button>
+                  </form>
+                  <form action="{{ url_for('admin_match_action') }}" method="POST">
+                    <input type="hidden" name="match_id" value="{{ m.match_id }}">
+                    <input type="hidden" name="action"   value="rejected">
+                    <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                  </form>
+                </div>
+                {% else %}
+                  —
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          {% else %}
+            <tr><td colspan="6" class="empty">No matches yet.</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- EXPIRED TAB -->
+  <div id="tab-expired" style="display:none;">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Location</th>
+            <th>Expired On</th>
+            <th>Reported By</th>
+            <th>Decision</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if expired_items %}
+            {% for item in expired_items %}
+            <tr>
+              <td><strong>{{ item.item_name }}</strong></td>
+              <td>{{ item.category_name }}</td>
+              <td>{{ item.location }}</td>
+              <td>{{ item.expiry_date }}</td>
+              <td>{{ item.full_name }}</td>
+              <td>
+                <form action="{{ url_for('admin_expired_action') }}" method="POST"
+                      style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                  <input type="hidden" name="found_id" value="{{ item.found_id }}">
+                  <select name="admin_action" class="form-control" style="width:auto; min-width:160px;">
+                    <option value="archived">Archived</option>
+                    <option value="sent_to_authority">Sent to Authority</option>
+                    <option value="donated">Donated</option>
+                    <option value="destroyed">Destroyed</option>
+                  </select>
+                  <input type="text" name="admin_note" class="form-control"
+                         placeholder="Note (optional)" style="flex:1; min-width:140px;">
+                  <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          {% else %}
+            <tr><td colspan="6" class="empty">No expired items requiring action.</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ALL LOST TAB -->
+  <div id="tab-all-lost" style="display:none;">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Item Name</th><th>Category</th><th>Location</th><th>Date</th><th>Status</th><th>Reported By</th></tr>
+        </thead>
+        <tbody>
+          {% if lost_count > 0 %}
+            <tr><td colspan="7" class="empty">Load lost items data here.</td></tr>
+          {% else %}
+            <tr><td colspan="7" class="empty">No lost items.</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ALL FOUND TAB -->
+  <div id="tab-all-found" style="display:none;">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Item Name</th><th>Category</th><th>Location</th><th>Date</th><th>Expiry</th><th>Status</th><th>Reported By</th></tr>
+        </thead>
+        <tbody>
+          {% if found_count > 0 %}
+            <tr><td colspan="8" class="empty">Load found items data here.</td></tr>
+          {% else %}
+            <tr><td colspan="8" class="empty">No found items.</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+{% block scripts %}
+<script>
+function showTab(name, btn) {
+  document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + name).style.display = 'block';
+  btn.classList.add('active');
+}
+</script>
+{% endblock %}
+
+{% endblock %}

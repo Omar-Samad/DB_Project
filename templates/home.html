@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Home — Lost & Found{% endblock %}
+
+{% block content %}
+<div class="hero">
+  <h1 class="hero-title">Lost Something? <span>Found Something?</span></h1>
+  <p class="hero-desc">Report lost or found items. We help connect people with their belongings through a simple and organized system.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary btn-lg" href="{{ url_for('report_lost') }}">Report Lost Item</a>
+    <a class="btn btn-outline btn-lg" href="{{ url_for('report_found') }}">Report Found Item</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">{{ total }}</div>
+      <div class="stat-label">Total Reports</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">{{ lost_count }}</div>
+      <div class="stat-label">Lost Items</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">{{ found_count }}</div>
+      <div class="stat-label">Found Items</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">{{ returned_count }}</div>
+      <div class="stat-label">Items Returned</div>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-title">How It Works</div>
+    <div class="page-sub">Three simple steps to recover your lost item</div>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-title">Report Your Item</div>
+      <div class="step-desc">Submit a report with item details, category, location, and date. Takes less than two minutes.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-title">System Finds Matches</div>
+      <div class="step-desc">Our system compares your report against existing reports and shows the closest matches automatically.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-title">Collect Your Item</div>
+      <div class="step-desc">Once a match is confirmed by admin, both parties are notified and the item can be collected.</div>
+    </div>
+  </div>
+</div>
+{% endblock %}

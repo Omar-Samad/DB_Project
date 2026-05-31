@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Notifications — Lost & Found{% endblock %}
+
+{% block content %}
+<div class="container-md">
+  <div class="page-header">
+    <div class="page-title">Notifications</div>
+    <div class="page-sub">Updates from admin about your reports and claims</div>
+  </div>
+
+  <div class="table-wrap">
+    {% if notifications %}
+      {% for n in notifications %}
+      <div class="notif-item {% if not n.is_read %}unread{% endif %}">
+        <div>{{ n.message }}</div>
+        <div class="notif-time">{{ n.created_at }}</div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div class="empty">No notifications yet.</div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
