@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Report Lost Item — Lost & Found{% endblock %}
+
+{% block content %}
+<div class="container-md">
+  <div class="page-header">
+    <div class="page-title">Report a Lost Item</div>
+    <div class="page-sub">Fill in as much detail as possible to help find a match</div>
+  </div>
+  <div class="card">
+    <form action="{{ url_for('report_lost') }}" method="POST">
+      <div class="form-group">
+        <label class="form-label">Item Name</label>
+        <input type="text" class="form-control" name="item_name"
+               placeholder="e.g. Black Wallet, Samsung Phone" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select class="form-control choices-select" name="category_id" required>
+            <option value="">Select a category</option>
+            {% for cat in categories %}
+            <option value="{{ cat.category_id }}">{{ cat.category_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Date Lost</label>
+          <input type="date" class="form-control" name="date_lost" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Location</label>
+        <select class="form-control choices-select" name="location" required>
+          <option value="">Select a location</option>
+          {% for loc in locations %}
+          <option value="{{ loc }}">{{ loc }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" name="description"
+          placeholder="Color, brand, marks, what was inside, etc."></textarea>
+      </div>
+      <div style="display:flex; gap:10px; justify-content:flex-end;">
+        <a href="{{ url_for('home') }}" class="btn btn-outline">Cancel</a>
+        <button type="submit" class="btn btn-primary">Submit Report</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% block title %}{{ item.item_name }} — Lost & Found{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div style="margin-bottom:16px;">
+    <a href="{{ url_for('browse_lost') if item_type == 'lost' else url_for('browse_found') }}"
+       style="color:var(--muted); font-size:14px; text-decoration:none;">
+      ← Back to {{ 'Lost' if item_type == 'lost' else 'Found' }} Items
+    </a>
+  </div>
+
+  <div class="detail-grid">
+
+    <!-- LEFT — ITEM DETAILS -->
+    <div>
+      <div class="card" style="margin-bottom:20px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
+          <div>
+            <div class="page-title">{{ item.item_name }}</div>
+            <div style="margin-top:6px;">
+              <span class="badge badge-{{ item_type }}" style="margin-right:6px;">
+                {{ item_type|upper }}
+              </span>
+              <span class="badge badge-{{ item.status }}">{{ item.status }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Category</span>
+          <span>{{ item.category_name }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Location</span>
+          <span>{{ item.location }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">
+            {{ 'Date Lost' if item_type == 'lost' else 'Date Found' }}
+          </span>
+          <span>{{ item.date_lost if item_type == 'lost' else item.date_found }}</span>
+        </div>
+        {% if item_type == 'found' and item.expiry_date %}
+        <div class="detail-row">
+          <span class="detail-label">Expiry Date</span>
+          <span>{{ item.expiry_date }}</span>
+        </div>
+        {% endif %}
+        <div class="detail-row">
+          <span class="detail-label">Reported By</span>
+          <span>{{ item.full_name }}</span>
+        </div>
+        {% if item.description %}
+        <hr class="divider">
+        <div style="font-size:14px; color:var(--muted); line-height:1.7;">
+          {{ item.description }}
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- VERIFICATION QUESTIONS — visible to founder and admin only with answers -->
+      <!-- visible to claimer without answers -->
+      {% if item_type == 'found' and questions %}
+        {% if is_founder or is_admin %}
+        <div class="card" style="margin-bottom:20px;">
+          <div class="section-title">Verification Questions & Answers</div>
+          {% for q in questions %}
+          <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:14px; margin-bottom:10px;">
+            <div style="font-size:14px; font-weight:600; margin-bottom:6px;">{{ q.question }}</div>
+            <div style="font-size:13px; color:var(--success);">Answer: {{ q.answer }}</div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      {% endif %}
+
+      <!-- CLAIMS — visible to founder and admin only -->
+      {% if item_type == 'found' and (is_founder or is_admin) and claims %}
+      <div class="card">
+        <div class="section-title">Claims ({{ claims|length }})</div>
+        {% for claim in claims %}
+        <div class="claim-card">
+          <div class="claim-card-header">
+            <strong style="font-size:14px;">{{ claim.claimer_name }}</strong>
+            <span class="badge badge-{{ claim.status }}">{{ claim.status }}</span>
+          </div>
+          <div style="font-size:14px; color:var(--muted); margin-top:4px;">
+            {{ claim.claim_message }}
+          </div>
+          <div class="notif-time">{{ claim.created_at }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- RIGHT — CLAIM FORM (only for found items, not for founder or admin) -->
+    <div>
+      {% if item_type == 'found' %}
+
+        {% if is_founder %}
+          <div class="card">
+            <div style="font-size:14px; color:var(--muted);">
+              This is your own found item report.
+            </div>
+          </div>
+
+        {% elif is_admin %}
+          <div class="card">
+            <div style="font-size:14px; color:var(--muted);">
+              You are viewing this as admin.
+            </div>
+          </div>
+
+        {% elif item.status == 'returned' %}
+          <div class="card">
+            <div class="alert alert-success" style="margin:0;">
+              This item has already been returned to its owner.
+            </div>
+          </div>
+
+        {% elif already_claimed %}
+          <div class="card">
+            <div class="alert alert-info" style="margin:0;">
+              You have already submitted a claim for this item. Please wait for admin review.
+            </div>
+          </div>
+
+        {% elif session.get('user_id') %}
+          <div class="card">
+            <div class="section-title">This is My Item</div>
+            <p style="font-size:14px; color:var(--muted); margin-bottom:16px;">
+              Write details to prove this item belongs to you. Answer the verification
+              questions below in your message.
+            </p>
+
+            {% if questions %}
+            <div style="background:var(--warning-bg); border:1px solid #f5d9a8; border-radius:var(--radius); padding:14px; margin-bottom:16px;">
+              <div style="font-size:13px; font-weight:600; margin-bottom:10px; color:var(--warning);">
+                Answer these verification questions in your message:
+              </div>
+              {% for q in questions %}
+              <div style="font-size:13px; color:var(--text); margin-bottom:6px;">
+                {{ loop.index }}. {{ q.question }}
+              </div>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            <form action="{{ url_for('submit_claim') }}" method="POST">
+              <input type="hidden" name="item_type" value="{{ item_type }}">
+              <input type="hidden" name="item_id"   value="{{ item_id }}">
+              <div class="form-group">
+                <label class="form-label">Your Claim Message</label>
+                <textarea class="form-control" name="claim_message" rows="6"
+                  placeholder="Describe your proof and answer the verification questions above..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Submit Claim</button>
+            </form>
+          </div>
+
+        {% else %}
+          <div class="card">
+            <div style="font-size:14px; color:var(--muted); margin-bottom:14px;">
+              Please login to submit a claim for this item.
+            </div>
+            <a href="{{ url_for('login') }}" class="btn btn-primary btn-full">Login to Claim</a>
+          </div>
+        {% endif %}
+
+      {% else %}
+        <!-- lost item — no claim button -->
+        <div class="card">
+          <div style="font-size:14px; color:var(--muted);">
+            This is a lost item report. If you have found this item,
+            <a href="{{ url_for('report_found') }}" style="color:var(--primary); font-weight:500;">
+              report it here
+            </a>
+            and the system will match it automatically.
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+{% endblock %}
