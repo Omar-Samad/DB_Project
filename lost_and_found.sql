@@ -74,3 +74,12 @@ create table notifications (
     created_at datetime default current_timestamp,
     foreign key (user_id) references users(user_id)
 );
+
+create table verification_questions (
+    question_id int auto_increment primary key,
+    found_id int not null,
+    question text not null,
+    answer text not null,
+    created_at datetime default current_timestamp,
+    foreign key (found_id) references found_items(found_id)
+);

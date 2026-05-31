@@ -21,3 +21,5 @@ create INDEX idx_claim_status ON claims(status);
 
 CREATE INDEX idx_notif_user on notifications(user_id);
 
+CREATE INDEX idx_vq_found on verification_questions(found_id);
+
