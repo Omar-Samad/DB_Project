@@ -55,7 +55,6 @@
     </button>
   </div>
 
-  <!-- PENDING ITEMS TAB -->
   <div id="tab-pending">
     <div class="table-wrap">
       <table>
@@ -103,56 +102,75 @@
       </table>
     </div>
   </div>
-
+  
   <!-- CLAIMS TAB -->
   <div id="tab-claims" style="display:none;">
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Type</th>
-            <th>Claimed By</th>
-            <th>Message</th>
-            <th>Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% if pending_claims %}
-            {% for claim in pending_claims %}
-            <tr>
-              <td><strong>{{ claim.item_name }}</strong></td>
-              <td><span class="badge badge-{{ claim.item_type }}">{{ claim.item_type }}</span></td>
-              <td>{{ claim.claimer_name }}</td>
-              <td style="max-width:260px; font-size:13px; color:var(--muted);">
-                {{ claim.claim_message[:120] }}{% if claim.claim_message|length > 120 %}...{% endif %}
-              </td>
-              <td>{{ claim.created_at }}</td>
-              <td>
-                <div class="action-row">
-                  <form action="{{ url_for('admin_claim_action') }}" method="POST">
-                    <input type="hidden" name="claim_id" value="{{ claim.claim_id }}">
-                    <input type="hidden" name="action"   value="approved">
-                    <button type="submit" class="btn btn-success btn-sm">Approve</button>
-                  </form>
-                  <form action="{{ url_for('admin_claim_action') }}" method="POST">
-                    <input type="hidden" name="claim_id" value="{{ claim.claim_id }}">
-                    <input type="hidden" name="action"   value="rejected">
-                    <button type="submit" class="btn btn-danger btn-sm">Reject</button>
-                  </form>
-                </div>
-              </td>
-            </tr>
-            {% endfor %}
-          {% else %}
-            <tr><td colspan="6" class="empty">No pending claims.</td></tr>
-          {% endif %}
-        </tbody>
-      </table>
-    </div>
-  </div>
+    {% if pending_claims %}
+      {% for claim in pending_claims %}
+      <div class="card" style="margin-bottom:16px;">
 
+        <!-- CLAIM HEADER -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+          <div>
+            <span style="font-size:16px; font-weight:700;">{{ claim.item_name }}</span>
+            <span class="badge badge-{{ claim.item_type }}" style="margin-left:8px;">{{ claim.item_type }}</span>
+          </div>
+          <div class="action-row">
+            <form action="{{ url_for('admin_claim_action') }}" method="POST">
+              <input type="hidden" name="claim_id" value="{{ claim.claim_id }}">
+              <input type="hidden" name="action"   value="approved">
+              <button type="submit" class="btn btn-success btn-sm">Approve</button>
+            </form>
+            <form action="{{ url_for('admin_claim_action') }}" method="POST">
+              <input type="hidden" name="claim_id" value="{{ claim.claim_id }}">
+              <input type="hidden" name="action"   value="rejected">
+              <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- SIDE BY SIDE -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+
+          <!-- LEFT — FOUNDER QUESTIONS AND ANSWERS -->
+          <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:16px;">
+            <div style="font-size:13px; font-weight:700; color:var(--muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.4px;">
+              Founder: {{ claim.founder_name }}
+            </div>
+            {% if claim.questions %}
+              {% for q in claim.questions %}
+              <div style="margin-bottom:12px;">
+                <div style="font-size:13px; font-weight:600; margin-bottom:4px;">{{ loop.index }}. {{ q.question }}</div>
+                <div style="font-size:13px; color:var(--success); background:var(--success-bg); padding:6px 10px; border-radius:var(--radius);">
+                  {{ q.answer }}
+                </div>
+              </div>
+              {% endfor %}
+            {% else %}
+              <div style="font-size:13px; color:var(--muted);">No verification questions were added.</div>
+            {% endif %}
+          </div>
+
+          <!-- RIGHT — CLAIMER MESSAGE -->
+          <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:16px;">
+            <div style="font-size:13px; font-weight:700; color:var(--muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.4px;">
+              Claimer: {{ claim.claimer_name }}
+            </div>
+            <div style="font-size:13px; line-height:1.7; color:var(--text);">
+              {{ claim.claim_message }}
+            </div>
+            <div style="font-size:12px; color:var(--muted); margin-top:10px;">
+              Submitted: {{ claim.created_at }}
+            </div>
+          </div>
+
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div class="empty">No pending claims.</div>
+    {% endif %}
+  </div>
   <!-- MATCHES TAB -->
   <div id="tab-matches" style="display:none;">
     <div class="table-wrap">

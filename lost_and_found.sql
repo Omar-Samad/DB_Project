@@ -54,6 +54,17 @@ CREATE TABLE found_items(
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
 );
 
+create table matches (
+    match_id int auto_increment primary key,
+    lost_id int not null,
+    found_id int not null,
+    similarity_score decimal(5,2) not null,
+    match_status enum('pending','confirmed','rejected') default 'pending',
+    matched_at datetime default current_timestamp,
+    check (similarity_score >= 0 and similarity_score <= 100),
+    foreign key (lost_id) references lost_items(lost_id),
+    FOREIGN KEY (found_id) REFERENCES found_items(found_id)
+);
 
 create table claims (
     claim_id int auto_increment primary key,
